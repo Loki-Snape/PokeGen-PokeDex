@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<section class="generator-section">
+    <div class="pokedex-screen">
+        <div class="data-container">
+            <p class="poke-id">ERROR</p>
+            <h2 class="poke-name">Oops!</h2>
+            <p class="poke-types">No Pokemon with this id/name! Please enter correct information.</p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <form action="/" method="GET">
+            <button type="submit" class="generate-btn">
+                <span class="btn-text">Back to Home</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

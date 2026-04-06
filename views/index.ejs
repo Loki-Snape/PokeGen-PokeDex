@@ -1,0 +1,56 @@
+<%- include("partials/header.ejs") %>
+
+<section class="generator-section">
+    <div class="pokedex-screen">
+        <% if(locals.name && locals.id && locals.type && locals.img){ %>
+        <div class="pokemon-card">
+            <div class="image-container">
+                <img src="<%= img %>" alt="<%= name %> placeholder" class="poke-image">
+            </div>
+            
+            <div class="data-container">
+                <p class="poke-id">#<%= id %></p>
+                <h2 class="poke-name"><%= name %></h2>
+                
+                <div class="poke-types">
+                    <span class="type-badge"><%= type %></span>
+                </div>
+            </div>
+        </div>
+        <% } else{ %>
+            <div class="pokemon-card">
+                <div class="image-container">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu placeholder" class="poke-image">
+                </div>
+                
+                <div class="data-container">
+                    <p class="poke-id">#0025</p>
+                    <h2 class="poke-name">Pikachu</h2>
+                    
+                    <div class="poke-types">
+                        <span class="type-badge">Electric</span>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <div class="controls">
+        <form action="/search" method="POST" class="search-form">
+            <input type="text" name="pokemonName" placeholder="Search name or ID..." class="search-input" required>
+            <button type="submit" class="search-btn">
+                <span class="btn-text">Search Data</span>
+            </button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <form action="/" method="GET">
+            <button type="submit" class="generate-btn">
+                <span class="btn-text">Who's that Pokémon?</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
